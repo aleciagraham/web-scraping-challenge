@@ -1,27 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mission to Mars</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
+<html>
 
 <body>
-  <div class="container-fluid">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Scraping</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  
+</head>
+
+
+<body><
+<div class="container">
     <div class="jumbotron text-center">
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+      <h1>Mission to Mars </h1>
+      <p><a class="btn btn-primary btn-lg" href="scrape" role="button">Scrape New Data</a></p>
     </div>
-    <img src="{{ place //maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css image dictionary variable here  }}" alt="Sloth">
-    <h2>Latest Mars News</h2>
-     <img src="{{ place mars image dictionary variable here}}" alt="Sloth">
-     <hr>
-    <h3>Featured Mars Image {{place mars image dictionary variable here }}</h3>
-    <h3>Min Temp: {{ vacation.min_temp }}</h3>
-  </div>
+   <!--body New and images styling--> 
+ 
+    <div class="row" id="mars_info">
+      <div class="col-md-12 col-sm-12">
+        <h2 class="news">Latest Mars News</h2>
+        <h4 class="heading">{{mars_data.news_title}}</h4>
+        <p>{{mars_data.news_paragrah}}</p>
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <h2 class="featured-image">Featured Mars Image</h2>
+        <img src= {{mars_data.image}} height=auto width=750px>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-body weather">
+             </div>
+        </div>
+        <h4>Mars Facts</h4>
+        <p>{{mars_data.mars_table|safe }}</p>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <h4 id="hemisphere" style="text-align: center;">Mars Hemispheres</h4>
+          <hr>
+          <div class="row">
+            <div class="col-md-6 hemispheres">
+              <div class="panel panel-default">
+                  <div class="panel-header">
+                    <img src = {{mars_data.hemisphere_list[0].img_url}} width="100%">
+                  </div>
+                  <div class="panel-body hemisphere-titles">
+                    <h4>{{mars_data.hemisphere_list[0].title}}</h4>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-6 hemispheres">
+              <div class="panel panel-default">
+                  <div class="panel-header">
+                    <img src = {{mars_data.hemisphere_list[1].img_url}} width="100%">
+                  </div>
+                  <div class="panel-body hemisphere-titles">
+                    <h4>{{mars_data.hemisphere_list[1].title}}</h4>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-6 hemispheres">
+              <div class="panel panel-default">
+                  <div class="panel-header">
+                    <img src = {{mars_data.hemisphere_list[2].img_url}} width="100%">
+                  </div>
+                  <div class="panel-body hemisphere-titles">
+                    <h4>{{mars_data.hemisphere_list[2].title}}</h4>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-6 hemispheres">
+              <div class="panel panel-default">
+                  <div class="panel-header">
+                    <img src = {{mars_data.hemisphere_list[3].img_url}} width="100%">
+                  </div>
+                  <div class="panel-body hemisphere-titles">
+                    <h4>{{mars_data.hemisphere_list[3].title}}</h4>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
 </body>
-
 </html>
+
